@@ -1,17 +1,17 @@
 <template>
-    <div class="row">
-      <form @submit.prevent="onSubmit">
-        <div class="row">
-          <div class="input-field col s10 l6 offset-l3">
-            <input id="input_text" type="text" data-length="10" v-model="taskTitle">
-            <label for="input_text">Task Title</label>
-          </div>
-          <div class="input-field col">
-            <button type="submit" name="action" class="btn waves-effect waves-light green"><i class="material-icons">add</i></button>
-          </div>
-        </div>
-      </form>
-    </div>
+  <v-form @submit.prevent="onSubmit">
+    <v-row justify="center">
+      <v-col xl="6" cols="12" >
+        <v-text-field 
+           v-model="taskTitle" 
+           label="Task Title" 
+           autofocus 
+           counter 
+           clearable default></v-text-field>
+        <v-btn type="submit" name="action" dark color="green"><i class="material-icons" white>add</i></v-btn>
+      </v-col>
+    </v-row>
+  </v-form>
 </template>
 
 <script>
@@ -19,7 +19,7 @@ export default {
   name: 'taskcreate',
   data() {
     return {
-      taskTitle: null,
+      taskTitle: null
     }
   },
   methods:

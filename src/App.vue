@@ -1,28 +1,26 @@
 <template>
-    <div id="app">
-      <div class="container">
-        <div class="section" >
-          <taskcreate @task-created="addNewTask"></taskcreate>
-        </div>
-        <div class="row">
-          <div class="col s10 l6 offset-l3">
+  <v-app>
+    <v-content>
+      <v-container>
+        <taskcreate @task-created="addNewTask"></taskcreate>
+        
             <div v-for="(task, index) in tasks" v-bind:key="index">
               <task :taskTitle="task.taskTitle"></task>
-              <button @click="removeTask(index)"
-                   class="waves-effect waves-red red-text btn-flat">
+              <v-btn 
+                @click="removeTask(index)"
+                dark color="red">
                 <i class="material-icons">close</i>
-              </button>
+              </v-btn>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
+      </v-container>
+    </v-content>
+  </v-app>
 </template>
 
 <script>
 import task from './components/task.vue'
 import taskcreate from './components/taskcreate.vue'
-
 export default {
   name: 'App',
   data() {
